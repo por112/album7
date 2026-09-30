@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>อัลบั้มรูปของฉัน</title>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600&family=Kanit:wght@400;600&family=Sriracha&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7f0;--fg:#3a2e2a;--card:#fff;--mut:#8a7a72;--ac:#e0567a;--bd:#f0ddd2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1e1a1c;--fg:#f3e9e4;--card:#2b2528;--mut:#b3a59d;--bd:#40363a;--ac:#f07a9a}}
+:root[data-theme="dark"]{--bg:#1e1a1c;--fg:#f3e9e4;--card:#2b2528;--mut:#b3a59d;--bd:#40363a;--ac:#f07a9a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 'Mali','Kanit',system-ui,sans-serif;min-height:100vh}
+section{display:none;max-width:1000px;margin:0 auto;padding:16px}
+section.on{display:block}
+h1,h2{margin:.3em 0}
+header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+header h2{flex:1;font-size:1.2rem}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--card);color:var(--fg);border-radius:12px;padding:8px 14px}
+button:disabled{opacity:.4;cursor:not-allowed}
+.btn{background:var(--ac);color:#fff;border:0;font-weight:600}
+.big{width:100%;padding:14px;font-size:1.05rem;margin-top:14px}
+input[type=email],input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:12px;background:var(--card);color:var(--fg);font:inherit;margin:4px 0 10px}
+.mut{color:var(--mut);font-size:.85rem}
+.center{text-align:center}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:22px;max-width:380px;margin:12vh auto 0}
+.menu{display:grid;gap:14px;max-width:420px;margin:24px auto}
+.menu button{padding:22px;font-size:1.15rem;border-radius:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:10px;cursor:pointer}
+.card b{display:block;margin-top:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fsel{width:100%;margin-top:6px;padding:5px 6px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--fg);font:inherit;font-size:.8rem}
+.ecard{width:100%;margin-top:6px;font-size:.78rem;padding:6px}
+.cvw{width:100%}
+.cover{container-type:inline-size;position:relative;aspect-ratio:3/4;border-radius:6px 14px 14px 6px;overflow:hidden;box-shadow:0 6px 18px #0003}
+.cover:before{content:"";position:absolute;inset:0 auto 0 0;width:7%;background:#0003;z-index:2}
+.cover:after{content:"";position:absolute;inset:4% 5% 4% 11%;border:.6cqw dashed currentColor;opacity:.5;border-radius:3cqw;pointer-events:none;z-index:2}
+.cover.hasph:after{opacity:.85}
+.covph{position:absolute;inset:4% 5% 4% 11%;display:grid;grid-template-columns:repeat(6,1fr);gap:2%;z-index:0}
+.cover.hasph .ct,.cover.hasph .cs{text-shadow:0 2px 8px rgba(0,0,0,.65)}
+.ct{position:absolute;left:12%;right:6%;top:14%;text-align:center;font-size:9cqw;font-weight:600;line-height:1.2;word-break:break-word;z-index:1}
+.cs{position:absolute;left:12%;right:6%;top:38%;text-align:center;font-size:5cqw;opacity:.9;z-index:1}
+.stk{position:absolute;transform:translate(-50%,-50%);line-height:1;cursor:grab;touch-action:none;user-select:none;font-weight:400;z-index:1}
+.stk.sel{outline:2px dashed #fff;outline-offset:4px;border-radius:8px}
+#ctl{max-width:620px;margin:0 auto}
+.pvs{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:12px;justify-content:center;padding:8px 0;border-bottom:1px solid var(--bd)}
+.pgw{width:100%}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tabs button.on,.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.ctl h3{font-size:.95rem;margin:14px 0 6px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sw{width:34px;height:34px;border-radius:50%;padding:0;border:2px solid var(--bd)}
+.sw.on{outline:3px solid var(--ac);outline-offset:2px}
+.em1{font-size:1.4rem;padding:4px 8px}
+.page{container-type:inline-size;aspect-ratio:3/4;display:grid;grid-template-columns:repeat(6,1fr);gap:3%;padding:6%;border-radius:12px;box-shadow:0 6px 18px #0003;position:relative}
+.slot{position:relative;min-height:0;cursor:pointer;overflow:hidden}
+.ph{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
+.ph.e{background:rgba(128,128,128,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#6b6b6b;font-size:4cqw;text-align:center;padding:2px;line-height:1.2}.d1 .ph.e{font-size:3.2cqw}.d2 .ph.e{font-size:2.6cqw}
+.ph.e span{font-size:2.2em}
+.zbtn{position:absolute;top:3%;right:3%;width:26%;max-width:30px;aspect-ratio:1;padding:0;border-radius:50%;font-size:.75rem;background:#0008;color:#fff;border:0;z-index:4;line-height:1}
+.f0{border-radius:8px}.f0 .ph{border-radius:8px}
+.f1{background:#fff;padding:5px 5px 22px;box-shadow:0 3px 8px #0004}
+.f2{border:5px double #c9a227;padding:4px;background:#fffbe8}
+.f3{border-radius:24px;border:4px solid #fff;box-shadow:0 3px 8px #0004}.f3 .ph{border-radius:20px}
+.f4{border:3px dashed #e0567a;padding:5px;border-radius:4px}
+.pn{position:absolute;bottom:1%;left:0;right:0;text-align:center;font-size:3cqw;color:#888}
+.stage{display:flex;flex-direction:column;align-items:center;gap:14px}
+.book{width:min(86vw,360px);position:relative;perspective:1400px}
+.book .page{position:relative}
+.cv{position:absolute;inset:0;transform-origin:left center;transition:transform 1s ease,opacity .4s ease .7s;cursor:pointer;z-index:2}
+.cv .cover{height:100%}
+.cv.open{transform:rotateY(-170deg);opacity:0;pointer-events:none}
+.nav{display:flex;align-items:center;gap:14px}
+.acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#333;color:#fff;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:9}
+#toast.on{opacity:1}
+.pvc{width:min(40vw,240px)}.cap{font-size:.75rem;color:var(--mut);text-align:center}
+#pvP .nav{justify-content:center;gap:8px;margin-top:4px}#pvP .nav button{padding:0 10px}
+#ctl h2{font-size:1.1rem;margin:24px 0 4px;padding-top:14px;border-top:2px solid var(--bd)}#ctl h2:first-child{border:0;margin-top:12px}
+.st{display:inline-flex;align-items:center;gap:14px}.st b{min-width:2ch;text-align:center;font-size:1.2rem}.st button{width:38px;height:38px;padding:0;font-size:1.2rem}
+.lt{padding:4px}.lt.on{border-color:var(--ac);outline:2px solid var(--ac)}.mg{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;width:38px;height:50px}.mg i{background:var(--mut);opacity:.6;border-radius:1px}
+.em1{touch-action:none;user-select:none}
+.ghost{position:fixed;transform:translate(-50%,-50%);font-size:40px;pointer-events:none;z-index:30}
+.stk.sel{outline-color:currentColor}
+.zmodal{position:fixed;inset:0;background:#000c;z-index:60;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:16px}
+.zbox{position:relative;overflow:hidden;background:#111;border-radius:10px;touch-action:none}
+.zbox img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transform-origin:center;pointer-events:none}
+.zctl{display:flex;align-items:center;gap:10px;color:#fff}
+.zctl input[type=range]{width:min(60vw,240px)}
+.zmodal .row{justify-content:center}
+</style>
+</head>
+<body>
+
+<section id="v-login"><div class="box center">
+<div style="font-size:3rem">📸</div><h1>อัลบั้มรูปของฉัน</h1>
+<p class="mut">ใส่อีเมลเพื่อเข้าใช้งาน</p>
+<input type="email" id="em" placeholder="you@example.com" autocomplete="email">
+<button class="btn big" style="margin-top:0" id="lg">เข้าสู่ระบบ</button>
+<p class="mut">เวอร์ชันเดโม: ไม่ต้องใช้รหัสผ่านและไม่ส่งอีเมลยืนยัน อัลบั้มถูกเก็บในเบราว์เซอร์นี้ตามอีเมลที่ใช้เข้า</p>
+</div></section>
+
+<section id="v-home">
+<header><h2 id="who"></h2><button id="out">ออกจากระบบ</button></header>
+<div class="menu">
+<button class="btn" id="mNew">✨ สร้างอัลบั้มใหม่</button>
+<button id="mList">📚 อัลบั้มที่เคยสร้าง</button>
+<button id="mTrash">🗑️ ถังขยะ</button>
+</div></section>
+
+<section id="v-list"><header><button class="bk">← กลับ</button><h2>อัลบั้มที่เคยสร้าง</h2></header><div class="row" id="fRow" style="margin-bottom:12px"></div><div class="grid" id="gList"></div></section>
+
+<section id="v-trash"><header><button class="bk">← กลับ</button><h2>ถังขยะ</h2></header><p class="mut">อัลบั้มในถังขยะจะถูกลบถาวรหลังจาก 15 วัน</p><div class="grid" id="gTrash"></div></section>
+
+<section id="v-design">
+<header><button class="bk">← กลับ</button><h2>ตกแต่งอัลบั้ม</h2></header>
+<div class="pvs"><div class="pvc"><div class="cap">ตัวอย่างปก</div><div id="pvC"></div></div><div class="pvc"><div class="cap">ตัวอย่างหน้าในอัลบั้ม</div><div id="pvP"></div></div></div>
+<div id="ctl"></div>
+<button class="btn big" id="go">✨ เริ่มสร้างอัลบั้มของฉัน</button>
+</section>
+
+<section id="v-book"><header><button class="bk">← กลับ</button><h2 id="bt"></h2></header>
+<div class="stage">
+<div class="book" id="book"><div id="pg"></div><div class="cv" id="cv"></div></div>
+<p class="mut" id="hint">👆 แตะที่อัลบั้มเพื่อเปิดปก</p>
+<div class="nav" id="nav" style="display:none"><button id="pp">‹</button><span id="pi"></span><button id="pn">›</button></div>
+<p class="mut" id="prog"></p>
+<div class="acts">
+<button id="backCover">🖼️ กลับไปหน้าปก</button>
+<button id="editLayout">🎨 แก้ไขปก/เลย์เอาท์</button>
+<button id="expImg">🖼️ ส่งออกรูปภาพ</button>
+<button id="expPdf">📄 ส่งออก PDF</button>
+<button class="btn" id="keep">💾 เก็บอัลบั้ม</button>
+<button id="trash">🗑️ ทิ้งอัลบั้ม</button>
+</div>
+</div></section>
+
+<input type="file" id="file" accept="image/*" hidden>
+<div id="toast"></div>
+
+<div class="zmodal" id="zoomModal">
+<div class="zbox" id="zBox"><img id="zImg" src=""></div>
+<div class="zctl"><span>🔍</span><input type="range" id="zRange" min="1" max="3" step="0.02" value="1"><button id="zReset">รีเซ็ต</button></div>
+<div class="row"><button id="zX">ยกเลิก</button><button class="btn" id="zOk">ตกลง</button></div>
+<p class="mut" style="color:#ddd">ลากรูปเพื่อเลื่อนตำแหน่ง ใช้แถบเลื่อนเพื่อซูม</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const COV=['#e0567a','#f4a261','#e9c46a','#2a9d8f','#4a90d9','#7b5ea7','#3d3d4e','#f2b5c4','linear-gradient(135deg,#f6d365,#fda085)','linear-gradient(135deg,#a1c4fd,#c2e9fb)','linear-gradient(135deg,#667eea,#764ba2)','linear-gradient(135deg,#43e97b,#38f9d7)'];
+const TXT=['#ffffff','#3a2e2a','#ffe27a','#ffd6e5'];
+const FONTS=[['Mali','น่ารัก'],['Kanit','เท่'],['Sriracha','ลายมือ']];
+const STK=['🌸','⭐','❤️','🌈','🎀','🦋','☀️','🌙','✨','🎈','🐶','🐱','🍓','🌻','🎂','✈️','📷','🏖️','🎵','👑','🍀','🎉'];
+const PGBG=['#ffffff','#fff1e6','#e8f5e9','#e3f2fd','#f3e5f5','#fff9c4','#fce4ec','#263238','radial-gradient(#f3c9d5 2px,transparent 2px) 0 0/18px 18px #ffffff','repeating-linear-gradient(45deg,#ffffff,#ffffff 10px,#fdf0e6 10px,#fdf0e6 20px)'];
+const FRM=[['0','เรียบ'],['1','โพลารอยด์'],['2','ทอง'],['3','มน'],['4','เส้นประ']];
+
+/* ---- storage (IndexedDB, in-memory fallback) ---- */
+let mem={};
+const idb=new Promise((res,rej)=>{try{const r=indexedDB.open('albumapp',1);r.onupgradeneeded=()=>r.result.createObjectStore('a',{keyPath:'id'});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}});
+const tx=async(m,f)=>{const d=await idb;return new Promise((res,rej)=>{const t=d.transaction('a',m),q=f(t.objectStore('a'));t.oncomplete=()=>res(q&&q.result);t.onerror=()=>rej(t.error)})};
+const put=async a=>{mem[a.id]=a;try{await tx('readwrite',s=>s.put(a))}catch(e){}};
+const del=async id=>{delete mem[id];try{await tx('readwrite',s=>s.delete(id))}catch(e){}};
+const mine=async()=>{let l;try{l=await tx('readonly',s=>s.getAll())}catch(e){l=Object.values(mem)}return l.filter(a=>a.email===me).map(norm)};
+let me='';try{me=localStorage.getItem('albumMe')||''}catch(e){}
+
+/* ---- helpers ---- */
+let tt;const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),2200)};
+const show=id=>{$$('section').forEach(s=>s.classList.toggle('on',s.id==='v-'+id));window.scrollTo(0,0);if(id==='home')$('#who').textContent='👋 '+me;if(id==='list')renderList();if(id==='trash')renderTrash()};
+$$('.bk').forEach(b=>b.onclick=()=>show('home'));
+const LO={1:[[1]],2:[[1,1],[2]],3:[[1,2],[2,1],[1,1,1],[3]],4:[[2,2],[1,3],[3,1]],5:[[2,3],[3,2],[1,2,2]],6:[[3,3],[2,2,2],[1,2,3]],7:[[3,2,2],[2,2,3],[1,3,3]],8:[[3,3,2],[2,3,3],[2,2,2,2]],9:[[3,3,3],[2,2,2,3],[3,2,2,2]]};
+const norm=a=>{if(!a.pgs){const L=a.layout,c=+a.pages||4;a.pgs=Array.from({length:c},(_,p)=>({n:L==='mix'?[4,3,2,1][p%4]:(+L||4),v:0}))}if(a.folder===undefined)a.folder=null;if(!a.cov)a.cov={n:0,v:0,photos:{}};return a};
+const fKey=()=>'albumFolders:'+me;
+const getFolders=()=>{try{return JSON.parse(localStorage.getItem(fKey())||'[]')}catch(e){return[]}};
+const saveFolders=arr=>{try{localStorage.setItem(fKey(),JSON.stringify(arr))}catch(e){}};
+let curFolder='all';
+const total=a=>a.pgs.reduce((t,g)=>t+g.n,0);
+const pval=v=>{if(!v)return null;if(typeof v==='string')return{u:v,s:1,tx:0,ty:0};return{u:v.u,s:v.s||1,tx:v.tx||0,ty:v.ty||0}};
+const phHTML=(v,key)=>v?`<img class="ph" data-k="${key}" src="${v.u}" style="transform:scale(${v.s}) translate(${v.tx}%,${v.ty}%)"><button class="zbtn" data-z="${key}">🔍</button>`:`<div class="ph e"><span>📷</span>คลิกเพื่อใส่รูป</div>`;
+function cover(a,editable){editable=!!editable;const cn=(a.cov&&a.cov.n)||0;let layer='';
+if(cn>0){const V=LO[cn],rows=V[(a.cov.v||0)%V.length];let i=0,cells='';
+rows.forEach((k,r)=>{for(let j=0;j<k;j++,i++){const key='cov-'+i,v=pval(a.cov.photos[key]);cells+=`<div class="slot cslot" data-k="${key}" style="grid-column:span ${6/k};grid-row:${r+1}">${editable?phHTML(v,key):(v?`<img class="ph" src="${v.u}" style="transform:scale(${v.s}) translate(${v.tx}%,${v.ty}%)">`:`<div class="ph e"><span>📷</span>คลิกเพื่อใส่รูป</div>`)}</div>`}});
+layer=`<div class="covph">${cells}</div>`}
+return `<div class="cover ${cn>0?'hasph':''}" style="background:${a.color};color:${a.tc};font-family:'${a.font}','Mali',sans-serif">${layer}<div class="ct">${esc(a.title||'อัลบั้มของฉัน')}</div><div class="cs">${esc(a.sub||'')}</div>${a.st.map((s,i)=>`<b class="stk" data-i="${i}" style="left:${s.x}%;top:${s.y}%;font-size:${s.z}cqw">${s.e}</b>`).join('')}</div>`}
+function pageHTML(a,p,editable){editable=!!editable;const g=a.pgs[p],V=LO[g.n],rows=V[g.v%V.length];let i=0,h=`<div class="page d${g.n>=7?2:g.n>=4?1:0}" style="background:${a.bg};grid-template-rows:repeat(${rows.length},1fr)">`;
+rows.forEach((k,r)=>{for(let j=0;j<k;j++,i++){const key=p+'-'+i,v=pval(a.photos[key]);h+=`<div class="slot f${a.frame}" data-k="${key}" style="grid-column:span ${6/k};grid-row:${r+1}">${editable?phHTML(v,key):(v?`<img class="ph" style="transform:scale(${v.s}) translate(${v.tx}%,${v.ty}%)" src="${v.u}">`:`<div class="ph e"><span>📷</span>คลิกเพื่อใส่รูป</div>`)}</div>`}});
+return h+`<div class="pn">${p+1}</div></div>`}
+
+/* ---- login / home ---- */
+const enter=()=>{const v=$('#em').value.trim().toLowerCase();if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v))return toast('กรุณากรอกอีเมลให้ถูกต้อง');me=v;try{localStorage.setItem('albumMe',v)}catch(e){}purge();show('home')};
+$('#lg').onclick=enter;$('#em').onkeydown=e=>e.key==='Enter'&&enter();
+$('#out').onclick=()=>{me='';try{localStorage.removeItem('albumMe')}catch(e){}$('#em').value='';show('login')};
+$('#mList').onclick=()=>show('list');$('#mTrash').onclick=()=>show('trash');
+async function purge(){for(const a of await mine())if(a.status==='trash'&&Date.now()-a.del>=15*864e5)await del(a.id)}
+
+/* ---- lists ---- */
+function folderChips(all){const folders=getFolders(),cnt={};all.forEach(a=>{const k=a.folder||'__none__';cnt[k]=(cnt[k]||0)+1});
+let h=`<button class="chip ${curFolder==='all'?'on':''}" data-f="all">ทั้งหมด (${all.length})</button>`;
+folders.forEach(f=>h+=`<button class="chip ${curFolder===f?'on':''}" data-f="${esc(f)}">📁 ${esc(f)} (${cnt[f]||0})</button>`);
+if(cnt.__none__)h+=`<button class="chip ${curFolder==='__none__'?'on':''}" data-f="__none__">ไม่มีหมวดหมู่ (${cnt.__none__})</button>`;
+if(folders.includes(curFolder))h+=`<button id="delF">🗑️ ลบโฟลเดอร์นี้</button>`;
+h+=`<button id="nfBtn">＋ โฟลเดอร์ใหม่</button>`;return h}
+function card(a){const fs=getFolders();return `<div class="card" data-id="${a.id}"><div class="cvw">${cover(a,false)}</div><b>${esc(a.title)}</b><small class="mut">${a.status==='draft'?'⏳ ยังใส่รูปไม่ครบ':'✅ '+new Date(a.created).toLocaleDateString('th-TH')}</small>
+<select class="fsel" data-id="${a.id}" onclick="event.stopPropagation()"><option value="">— ไม่มีหมวดหมู่ —</option>${fs.map(f=>`<option value="${esc(f)}" ${a.folder===f?'selected':''}>📁 ${esc(f)}</option>`).join('')}</select>
+<button class="ecard" data-e="${a.id}">🎨 แก้ไขปก/เลย์เอาท์</button></div>`}
+async function renderList(){const all=(await mine()).filter(a=>a.status!=='trash').sort((a,b)=>b.created-a.created);
+$('#fRow').innerHTML=folderChips(all);
+const l=curFolder==='all'?all:all.filter(a=>(a.folder||'__none__')===curFolder);
+$('#gList').innerHTML=l.length?l.map(card).join(''):'<p class="mut">ยังไม่มีอัลบั้มในหมวดนี้</p>';
+$('#gList').onclick=e=>{if(e.target.closest('select'))return;
+const eb=e.target.closest('.ecard');if(eb){enterDesign(all.find(a=>a.id===eb.dataset.e));return}
+const c=e.target.closest('.card');if(!c)return;openBook(all.find(a=>a.id===c.dataset.id))};
+$('#gList').onchange=async e=>{const s=e.target.closest('.fsel');if(!s)return;const a=all.find(x=>x.id===s.dataset.id);if(!a)return;a.folder=s.value||null;await put(a);renderList()};
+$('#fRow').onclick=async e=>{const t=e.target;
+if(t.dataset.f){curFolder=t.dataset.f;renderList();return}
+if(t.id==='nfBtn'){$('#fRow').innerHTML=`<input id="nfIn" type="text" maxlength="24" placeholder="ชื่อโฟลเดอร์ใหม่" style="max-width:200px;display:inline-block;margin:0 6px 6px 0"><button id="nfOk" class="btn">สร้าง</button><button id="nfX">ยกเลิก</button>`;$('#nfIn').focus();return}
+if(t.id==='nfOk'){const v=$('#nfIn').value.trim(),fs=getFolders();if(!v)return toast('กรุณาใส่ชื่อโฟลเดอร์');if(fs.includes(v))return toast('มีโฟลเดอร์นี้อยู่แล้ว');if(fs.length>=20)return toast('สร้างโฟลเดอร์ได้สูงสุด 20 โฟลเดอร์');fs.push(v);saveFolders(fs);curFolder=v;renderList();return}
+if(t.id==='nfX'){renderList();return}
+if(t.id==='delF'){if(!t.dataset.s){t.dataset.s=1;t.textContent='กดอีกครั้งเพื่อยืนยัน';return}saveFolders(getFolders().filter(f=>f!==curFolder));for(const a of all.filter(a=>a.folder===curFolder)){a.folder=null;await put(a)}curFolder='all';renderList()}};
+$('#fRow').onkeydown=e=>{if(e.target.id==='nfIn'&&e.key==='Enter')$('#nfOk').click()}}
+async function renderTrash(){const l=(await mine()).filter(a=>a.status==='trash');$('#gTrash').innerHTML=l.length?l.map(a=>{const d=Math.max(0,15-Math.floor((Date.now()-a.del)/864e5));return`<div class="card"><div class="cvw">${cover(a,false)}</div><b>${esc(a.title)}</b><small class="mut">เหลืออีก ${d} วัน</small><div class="row" style="margin-top:8px"><button data-r="${a.id}">กู้คืน</button><button data-x="${a.id}">ลบถาวร</button></div></div>`}).join(''):'<p class="mut">ถังขยะว่างเปล่า</p>';
+$$('[data-r]').forEach(b=>b.onclick=async()=>{const a=l.find(x=>x.id===b.dataset.r);a.status=Object.keys(a.photos).length>=total(a)?'saved':'draft';delete a.del;await put(a);toast('กู้คืนแล้ว');renderTrash()});
+$$('[data-x]').forEach(b=>b.onclick=async()=>{if(!b.dataset.s){b.dataset.s=1;b.textContent='กดอีกครั้งเพื่อยืนยัน';return}await del(b.dataset.x);toast('ลบถาวรแล้ว');renderTrash()})}
+
+/* ---- designer ---- */
+let D,dp=0,sel=-1,editingExisting=false;
+const DEF=()=>({id:'a'+Date.now()+Math.random().toString(36).slice(2,6),email:me,title:'',sub:'',color:COV[0],tc:'#ffffff',font:'Mali',st:[],frame:'1',bg:PGBG[0],pgs:Array.from({length:4},()=>({n:4,v:0})),all:true,folder:null,cov:{n:0,v:0,photos:{}},photos:{},status:'draft',created:Date.now()});
+function enterDesign(existing){D=existing||DEF();editingExisting=!!existing;dp=0;sel=-1;show('design');$('#go').textContent=editingExisting?'💾 บันทึกการเปลี่ยนแปลง':'✨ เริ่มสร้างอัลบั้มของฉัน';buildCtl();updPrev()}
+$('#mNew').onclick=()=>enterDesign(null);
+const sw=(k,list,cur)=>`<div class="row">${list.map(v=>`<button class="sw ${v===cur?'on':''}" data-k="${k}" data-v="${v}" style="background:${v}"></button>`).join('')}</div>`;
+const chips=(k,list,cur)=>`<div class="row">${list.map(([v,t])=>`<button class="chip ${String(cur)===v?'on':''}" data-k="${k}" data-v="${v}">${t}</button>`).join('')}</div>`;
+const stp=(id,v,mn,mx)=>`<div class="st"><button data-st="${id}" data-d="-1" ${v<=mn?'disabled':''}>−</button><b>${v}</b><button data-st="${id}" data-d="1" ${v>=mx?'disabled':''}>＋</button></div>`;
+const thumb=(rows,on,v)=>`<button class="lt ${on?'on':''}" data-vr="${v}"><div class="mg" style="grid-template-rows:repeat(${rows.length},1fr)">${rows.map(k=>Array.from({length:k},()=>`<i style="grid-column:span ${6/k}"></i>`).join('')).join('')}</div></button>`;
+const thumbCov=(rows,on,v)=>`<button class="lt ${on?'on':''}" data-cvr="${v}"><div class="mg" style="grid-template-rows:repeat(${rows.length},1fr)">${rows.map(k=>Array.from({length:k},()=>`<i style="grid-column:span ${6/k}"></i>`).join('')).join('')}</div></button>`;
+function buildCtl(){const pg=D.pgs[dp],vs=LO[pg.n],ds=sel<0?'disabled':'',cn=D.cov.n,cvs=cn>0?LO[cn]:null;
+$('#ctl').innerHTML=`<h2>🎨 ตกแต่งหน้าปก</h2>
+<h3>ชื่ออัลบั้ม</h3><input type="text" id="iT" maxlength="40" value="${esc(D.title)}" placeholder="เช่น ทริปเชียงใหม่ 2026">
+<h3>ข้อความรอง</h3><input type="text" id="iS" maxlength="50" value="${esc(D.sub)}" placeholder="เช่น กับครอบครัว">
+<h3>สีปก</h3>${sw('color',COV,D.color)}<h3>สีตัวอักษร</h3>${sw('tc',TXT,D.tc)}<h3>ฟอนต์</h3>${chips('font',FONTS,D.font)}
+<h3>รูปภาพหน้าปก (0 = ไม่ใส่รูป ใส่ได้ภายหลังตอนเปิดอัลบั้ม)</h3>${stp('covn',cn,0,4)}
+${cvs?`<h3>เลย์เอาท์รูปปก</h3><div class="row">${cvs.map((r,i)=>thumbCov(r,i===(D.cov.v||0)%cvs.length,i)).join('')}</div>`:''}
+<h3>สติ๊กเกอร์ — ลากไปวางบนปกด้านบนได้เลย</h3><div class="row">${STK.map(e=>`<button class="em1" data-add="${e}">${e}</button>`).join('')}</div>
+<div class="row" style="margin-top:8px"><button data-act="big" ${ds}>＋ ใหญ่ขึ้น</button><button data-act="small" ${ds}>－ เล็กลง</button><button data-act="del" ${ds}>🗑️ ลบอันที่เลือก</button></div>
+<h2>📄 ตกแต่งหน้าอัลบั้ม</h2>
+<h3>จำนวนหน้าทั้งหมด</h3>${stp('pages',D.pgs.length,1,30)}
+<h3>เลือกหน้าที่จะตั้งค่า (ดูตัวอย่างด้านบน)</h3><div class="row">${D.pgs.map((_,i)=>`<button class="chip ${i===dp?'on':''}" data-pick="${i}">${i+1}</button>`).join('')}</div>
+<label class="mut" style="display:block;margin-top:8px"><input type="checkbox" id="all" ${D.all?'checked':''}> ตั้งค่าเหมือนกันทุกหน้า</label>
+<h3>จำนวนรูปในหน้า ${dp+1}</h3>${stp('n',pg.n,1,9)}
+<h3>เลย์เอาท์ของหน้า ${dp+1}</h3><div class="row">${vs.map((r,i)=>thumb(r,i===pg.v%vs.length,i)).join('')}</div>
+<h3>กรอบรูป</h3>${chips('frame',FRM,D.frame)}<h3>พื้นหลังหน้า</h3>${sw('bg',PGBG,D.bg)}
+${editingExisting?'<p class="mut">💡 การเปลี่ยนจำนวนรูป/เลย์เอาท์อาจทำให้บางช่องรูปเดิมถูกจัดใหม่ ถ้าลดจำนวนช่องลง รูปในช่องที่เกินจะถูกลบออก</p>':''}`}
+function updPrev(){$('#pvC').innerHTML=cover(D,false);$('#pvP').innerHTML=pageHTML(D,dp,false)+`<div class="nav"><button data-pg="-1" ${dp<1?'disabled':''}>‹</button><span class="mut">หน้า ${dp+1}/${D.pgs.length}</span><button data-pg="1" ${dp>=D.pgs.length-1?'disabled':''}>›</button></div>`;if(sel>=0){const e=$(`#pvC .stk[data-i="${sel}"]`);e&&e.classList.add('sel')}}
+$('#pvP').onclick=e=>{const b=e.target.closest('[data-pg]');if(!b||b.disabled)return;dp+=+b.dataset.pg;buildCtl();updPrev()};
+$('#ctl').oninput=e=>{const t=e.target;if(t.id==='iT')D.title=t.value;else if(t.id==='iS')D.sub=t.value;else return;updPrev()};
+$('#ctl').onchange=e=>{if(e.target.id!=='all')return;D.all=e.target.checked;if(D.all)D.pgs=D.pgs.map(()=>({...D.pgs[dp]}));buildCtl();updPrev()};
+$('#ctl').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const d=b.dataset,tg=D.all?D.pgs:[D.pgs[dp]];
+if(d.k)D[d.k]=d.v;
+else if(d.st==='pages'){if(+d.d>0)D.pgs.push({...D.pgs[D.pgs.length-1]});else D.pgs.pop();dp=Math.min(dp,D.pgs.length-1)}
+else if(d.st==='n'){const n=D.pgs[dp].n+ +d.d;tg.forEach(p=>{p.n=n;p.v=0})}
+else if(d.st==='covn'){D.cov.n=Math.max(0,Math.min(4,D.cov.n+ +d.d));D.cov.v=0}
+else if(d.pick!==undefined)dp=+d.pick;
+else if(d.vr!==undefined)tg.forEach(p=>p.v=+d.vr);
+else if(d.cvr!==undefined)D.cov.v=+d.cvr;
+else if(d.act&&sel>=0){if(d.act==='del'){D.st.splice(sel,1);sel=-1}else D.st[sel].z=Math.max(6,Math.min(50,D.st[sel].z+(d.act==='big'?4:-4)))}
+else return;
+buildCtl();updPrev()};
+/* drag sticker from palette onto cover */
+$('#ctl').addEventListener('pointerdown',e=>{const b=e.target.closest('[data-add]');if(!b)return;e.preventDefault();const g=document.createElement('div');g.className='ghost';g.textContent=b.dataset.add;document.body.appendChild(g);
+const at=ev=>{g.style.left=ev.clientX+'px';g.style.top=ev.clientY+'px'};at(e);const sx=e.clientX,sy=e.clientY;
+const up=ev=>{['pointermove','pointerup','pointercancel'].forEach((t,i)=>document.removeEventListener(t,i?up:at));g.remove();const r=$('#pvC .cover').getBoundingClientRect();let x=(ev.clientX-r.left)/r.width*100,y=(ev.clientY-r.top)/r.height*100;
+if(Math.hypot(ev.clientX-sx,ev.clientY-sy)<=8){x=50;y=60}else if(x<0||x>100||y<0||y>100)return;
+if(D.st.length>=30)return toast('สติ๊กเกอร์เต็มแล้ว');D.st.push({e:b.dataset.add,x,y,z:16});sel=D.st.length-1;buildCtl();updPrev()};
+document.addEventListener('pointermove',at);document.addEventListener('pointerup',up);document.addEventListener('pointercancel',up)});
+/* move sticker already on cover */
+$('#pvC').addEventListener('pointerdown',e=>{const s=e.target.closest('.stk');if(!s)return;const i=+s.dataset.i,r=s.parentElement.getBoundingClientRect();sel=i;s.setPointerCapture(e.pointerId);
+const mv=ev=>{D.st[i].x=Math.max(0,Math.min(100,(ev.clientX-r.left)/r.width*100));D.st[i].y=Math.max(0,Math.min(100,(ev.clientY-r.top)/r.height*100));s.style.left=D.st[i].x+'%';s.style.top=D.st[i].y+'%'};
+const up=()=>{s.removeEventListener('pointermove',mv);s.removeEventListener('pointerup',up);buildCtl();updPrev()};s.addEventListener('pointermove',mv);s.addEventListener('pointerup',up)});
+function cleanupOrphanPhotos(a){const validPage=new Set();a.pgs.forEach((g,p)=>{for(let i=0;i<g.n;i++)validPage.add(p+'-'+i)});Object.keys(a.photos).forEach(k=>{if(!validPage.has(k))delete a.photos[k]});
+const cn=(a.cov&&a.cov.n)||0,validCov=new Set();for(let i=0;i<cn;i++)validCov.add('cov-'+i);if(a.cov)Object.keys(a.cov.photos).forEach(k=>{if(!validCov.has(k))delete a.cov.photos[k]})}
+$('#go').onclick=async()=>{D.title=D.title.trim()||'อัลบั้มของฉัน';cleanupOrphanPhotos(D);
+if(editingExisting){const filled=Object.keys(D.photos).length;if(D.status==='saved'&&filled<total(D))D.status='draft';await put(D);toast('บันทึกการเปลี่ยนแปลงแล้ว');openBook(D)}
+else{D.status='draft';await put(D);openBook(D)}};
+
+/* ---- book ---- */
+let A,pi=0,opened=false,curK='';
+const nPages=()=>A.pgs.length;
+function openBook(a){A=a;pi=0;opened=false;$('#bt').textContent=a.title;$('#cv').innerHTML=cover(a,true);$('#cv').classList.remove('open');$('#hint').style.display='';$('#nav').style.display='none';show('book');drawPage();prog()}
+function drawPage(){$('#pg').innerHTML=pageHTML(A,pi,true);$('#pi').textContent=`หน้า ${pi+1} / ${nPages()}`;$('#pp').disabled=pi===0;$('#pn').disabled=pi===nPages()-1}
+function prog(){const f=Object.keys(A.photos).length,t=total(A);$('#prog').textContent=`ใส่รูปแล้ว ${f} / ${t} ช่อง`;$('#keep').style.display=A.status==='draft'?'':'none';$('#keep').disabled=f<t;$('#keep').title=f<t?'ใส่รูปให้ครบทุกหน้าก่อน':''}
+$('#cv').onclick=e=>{if(e.target.closest('.zbtn'))return;const s=e.target.closest('.cslot');if(s){curK=s.dataset.k;$('#file').click();return}if(opened)return;opened=true;$('#cv').classList.add('open');$('#hint').style.display='none';$('#nav').style.display='flex';toast('คลิกที่กรอบรูปเพื่อใส่รูป')};
+$('#backCover').onclick=()=>{$('#cv').innerHTML=cover(A,true);opened=false;$('#cv').classList.remove('open');$('#hint').style.display='';$('#nav').style.display='none'};
+$('#editLayout').onclick=()=>enterDesign(A);
+$('#pp').onclick=()=>{pi--;drawPage()};$('#pn').onclick=()=>{pi++;drawPage()};
+$('#pg').onclick=e=>{if(e.target.closest('.zbtn'))return;const s=e.target.closest('.slot');if(!s||!opened)return;curK=s.dataset.k;$('#file').click()};
+const shrink=f=>new Promise((res,rej)=>{const u=URL.createObjectURL(f),i=new Image();i.onerror=rej;i.onload=()=>{const s=Math.min(1,1000/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*s;c.height=i.height*s;c.getContext('2d').drawImage(i,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL('image/jpeg',.82))};i.src=u});
+$('#file').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||!curK)return;let du;try{du=await shrink(f)}catch(x){return toast('ไฟล์นี้ใช้ไม่ได้ ลองรูปอื่นนะ')}
+const val={u:du,s:1,tx:0,ty:0};if(curK.startsWith('cov-'))A.cov.photos[curK]=val;else A.photos[curK]=val;
+await put(A);$('#cv').innerHTML=cover(A,true);drawPage();prog();
+if(A.status==='draft'&&Object.keys(A.photos).length>=total(A))toast('ครบทุกหน้าแล้ว! กด "เก็บอัลบั้ม" ได้เลย 🎉')};
+$('#keep').onclick=async()=>{A.status='saved';await put(A);toast('เก็บอัลบั้มแล้ว 🎉');show('list')};
+$('#trash').onclick=async()=>{A.status='trash';A.del=Date.now();await put(A);toast('ย้ายไปถังขยะแล้ว (เก็บไว้ 15 วัน)');show('home')};
+
+/* ---- zoom/crop modal ---- */
+let zTarget=null,zS=1,zTX=0,zTY=0,zSrc='';
+function bindZoomTriggers(container,kind){container.addEventListener('click',e=>{const zb=e.target.closest('.zbtn');if(!zb)return;e.stopPropagation();openZoomFor(kind,zb.dataset.z,zb.closest('.slot'))})}
+bindZoomTriggers($('#cv'),'cover');bindZoomTriggers($('#pg'),'page');
+function openZoomFor(kind,key,slotEl){const map=kind==='cover'?A.cov.photos:A.photos;const v=pval(map[key]);if(!v)return;
+zTarget={kind,key};zS=v.s;zTX=v.tx;zTY=v.ty;zSrc=v.u;
+const r=slotEl.getBoundingClientRect();const maxW=Math.min(340,innerWidth*.85),maxH=innerHeight*.55;
+let w=maxW,h=w*(r.height/r.width);if(h>maxH){h=maxH;w=h*(r.width/r.height)}
+const box=$('#zBox');box.style.width=w+'px';box.style.height=h+'px';
+$('#zImg').src=zSrc;$('#zRange').value=zS;applyZoomTransform();$('#zoomModal').style.display='flex'}
+function applyZoomTransform(){$('#zImg').style.transform=`scale(${zS}) translate(${zTX}%,${zTY}%)`}
+$('#zBox').addEventListener('pointerdown',e=>{const rect=$('#zBox').getBoundingClientRect();const sx=e.clientX,sy=e.clientY,ox=zTX,oy=zTY;$('#zBox').setPointerCapture(e.pointerId);
+const mv=ev=>{const dx=ev.clientX-sx,dy=ev.clientY-sy,lim=(1-1/zS)*50;zTX=Math.max(-lim,Math.min(lim,ox+(dx/(rect.width*zS))*100));zTY=Math.max(-lim,Math.min(lim,oy+(dy/(rect.height*zS))*100));applyZoomTransform()};
+const up=()=>{$('#zBox').removeEventListener('pointermove',mv);$('#zBox').removeEventListener('pointerup',up)};
+$('#zBox').addEventListener('pointermove',mv);$('#zBox').addEventListener('pointerup',up)});
+$('#zRange').oninput=e=>{zS=+e.target.value;const lim=(1-1/zS)*50;zTX=Math.max(-lim,Math.min(lim,zTX));zTY=Math.max(-lim,Math.min(lim,zTY));applyZoomTransform()};
+$('#zReset').onclick=()=>{zS=1;zTX=0;zTY=0;$('#zRange').value=1;applyZoomTransform()};
+$('#zX').onclick=()=>{$('#zoomModal').style.display='none'};
+$('#zOk').onclick=async()=>{const map=zTarget.kind==='cover'?A.cov.photos:A.photos;map[zTarget.key]={u:zSrc,s:zS,tx:zTX,ty:zTY};await put(A);$('#zoomModal').style.display='none';
+if(zTarget.kind==='cover')$('#cv').innerHTML=cover(A,true);else drawPage()};
+
+/* ---- export image / PDF ---- */
+async function renderToCanvas(html,w,hh){const host=document.createElement('div');host.style.cssText=`position:fixed;left:-99999px;top:0;width:${w}px;height:${hh}px;overflow:hidden;background:#fff`;host.innerHTML=html;document.body.appendChild(host);await new Promise(r=>setTimeout(r,60));
+let canvas;try{canvas=await html2canvas(host.firstElementChild,{width:w,height:hh,scale:2,useCORS:true})}finally{document.body.removeChild(host)}return canvas}
+async function collectCanvases(a,w,h){const list=[await renderToCanvas(cover(a,false),w,h)];for(let p=0;p<a.pgs.length;p++)list.push(await renderToCanvas(pageHTML(a,p,false),w,h));return list}
+$('#expImg').onclick=async()=>{if(typeof html2canvas==='undefined')return toast('โหลดตัวช่วยส่งออกไม่สำเร็จ เช็คอินเทอร์เน็ตแล้วลองใหม่');
+toast('กำลังสร้างรูปภาพ...');try{const w=720,h=960,gap=20;const canvases=await collectCanvases(A,w,h);
+const big=document.createElement('canvas');big.width=w;big.height=canvases.length*h+(canvases.length-1)*gap;
+const ctx=big.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,big.width,big.height);
+canvases.forEach((c,i)=>ctx.drawImage(c,0,i*(h+gap),w,h));
+const link=document.createElement('a');link.download=(A.title||'album')+'.png';link.href=big.toDataURL('image/png');link.click();
+toast('ดาวน์โหลดรูปภาพแล้ว')}catch(e){toast('ส่งออกรูปภาพไม่สำเร็จ ลองใหม่อีกครั้ง')}};
+$('#expPdf').onclick=async()=>{if(typeof window.jspdf==='undefined')return toast('โหลดตัวช่วยส่งออกไม่สำเร็จ เช็คอินเทอร์เน็ตแล้วลองใหม่');
+toast('กำลังสร้าง PDF...');try{const w=720,h=960;const canvases=await collectCanvases(A,w,h);const{jsPDF}=window.jspdf;const doc=new jsPDF({unit:'pt',format:[w,h]});
+canvases.forEach((c,i)=>{if(i>0)doc.addPage([w,h]);doc.addImage(c.toDataURL('image/jpeg',0.92),'JPEG',0,0,w,h)});
+doc.save((A.title||'album')+'.pdf');toast('ดาวน์โหลด PDF แล้ว')}catch(e){toast('ส่งออก PDF ไม่สำเร็จ ลองใหม่อีกครั้ง')}};
+
+/* ---- start ---- */
+purge();me?show('home'):show('login');
+</script>
+</body>
+</html>
